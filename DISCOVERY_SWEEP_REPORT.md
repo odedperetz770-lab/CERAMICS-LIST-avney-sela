@@ -1,125 +1,171 @@
 # Discovery Sweep Report — Pass 1 (Mass Discovery, Recall-First)
 
-Date: 2026-08-17
-Scope of this pass: the 4 user-named QA seed localities (Beit Jann, Baqa al-Gharbiyye, Umm al-Fahm, Hadera) plus 5 more zero/low-coverage localities from the Pass 1A priority list (Kafr Yasif, Ar'ara/Wadi Ara, Qalansuwa, Tayibe, and a first look at Jatt).
+Last updated: 2026-08-17 (Session 2 — full priority-list sweep)
 
-**This is a discovery-only pass.** Nothing below has been added to `index.html` yet — every candidate is `DISCOVERED_UNVERIFIED` or flagged `POSSIBLE_DUPLICATE`, pending Pass 2 verification (exact locality confirmation, category relevance, phone/contact confirmation, dedup resolution).
+**This remains a discovery-only checkpoint.** Nothing below has been added to `index.html`. Every candidate is `DISCOVERED_UNVERIFIED`, `POSSIBLE_DUPLICATE`, or `NEEDS_REVIEW`, pending Pass 2 (locality confirmation, category relevance, phone/contact verification, dedup resolution). **The live database was not touched this session.**
 
-**Not yet swept this round** (from the Pass 1A priority list): Yarka, Abu Snan, Nahariya area, Shlomi area, Carmiel, Tamra, Shefa-Amr, Nazareth, Nof HaGalil, Sakhnin, Arraba, Kafr Manda, Iksal, Yafia, Kafr Kanna, Kafr Qara, Pardes Hanna-Karkur, Or Akiva, Netanya. Baseline `CURRENT_DB_COUNT` for these is included below (already pulled from the live data) so the next session can prioritize correctly, but no new discovery search was run for them yet.
-
----
-
-## Why the original complaint was partly right and partly not
-
-Checking `CURRENT_DB_COUNT` against real discovery results confirms real gaps, but not uniformly — some of the named examples already have meaningful coverage:
-
-| Locality | CURRENT_DB_COUNT (before this pass) |
-|---|---|
-| Beit Jann | **0** |
-| Baqa al-Gharbiyye | 2 |
-| Umm al-Fahm | 1 |
-| Hadera | **9** |
-| Kafr Yasif | **0** |
-| Ar'ara (Wadi Ara, Triangle) | **0** |
-| Qalansuwa | 1 |
-| Tayibe | **0** |
-| Jatt | **0** |
-
-Hadera in particular already has 9 real, named records — the complaint holds strongly for Beit Jann/Kafr Yasif/Ar'ara/Tayibe/Jatt (true zero-coverage localities) but less so for Hadera, which needs incremental discovery, not a from-scratch sweep.
+**Status: all 29 named priority localities have now been attempted at least once.** Geography-master expansion beyond this named list has not started yet.
 
 ---
 
-## Per-locality discovery detail
+## Per-locality results
 
-### בית ג'ן (Beit Jann)
-- GOOGLE/MAPS CANDIDATES: 0 distinct (generic national ceramics SEO noise only)
-- B144 CANDIDATES: 1 — חומרי בניין השלום (category: general building materials; ceramic/sanitary relevance **not yet confirmed**)
-- DAPEI ZAHAV CANDIDATES: **SOURCE_RESTRICTED** — dunsguide.co.il returned HTTP 403 (blocked the fetch); not bypassed, needs a different access method next session
-- EASY CANDIDATES: not checked this pass
-- FACEBOOK/INSTAGRAM CANDIDATES: not checked this pass
-- DEALER-LIST CANDIDATES: not checked this pass
-- **UNION CANDIDATE COUNT: 1**
-- CURRENT_DB_COUNT: 0
-- MISSING_CANDIDATES: 1 (likely more — 4 of 8 mandated source families untried)
-- COVERAGE_GAP_PERCENTAGE: 100%
+Legend: DB = CURRENT_DB_COUNT before this sweep · RAW = raw candidates surfaced · NET NEW = distinct new candidates after excluding exact DB matches and same-session cross-locality duplicates · GAP = NET NEW / (DB + NET NEW)
 
-### באקה אל-גרביה (Baqa al-Gharbiyye)
-- B144 CANDIDATES: 4 — חומרי בנין אבו טארק בע"מ (2 listing variants, likely same business, flagged `POSSIBLE_DUPLICATE`), ותד וג'יה חסן (חומרי בנין), ברזל ובניין מואסי, א.עתאמנה ובניו בע"מ
-- All 4 are general "building materials" category — ceramic/sanitary relevance **not yet confirmed** (Pass 2 required)
-- Other source families: not checked this pass
-- **UNION CANDIDATE COUNT: 4**
-- CURRENT_DB_COUNT: 2 (המרכז קרמיקה מואסי — באקה; קרמיקה צפון באקה)
-- MISSING_CANDIDATES: 4
-- COVERAGE_GAP_PERCENTAGE: 67% (4 of 6 total discovered-so-far candidates not yet in DB)
-- Note: "ברזל ובניין מואסי" shares the surname "מואסי" with the existing DB record "המרכז קרמיקה מואסי" — possible same extended-family business, needs Pass 2 check before treating as fully distinct.
+| Locality | DB | Sources used | RAW | NET NEW | GAP | Notes |
+|---|---|---|---|---|---|---|
+| בית ג'ן | 0 | Google, B144 | 1 | 1 | 100% | Dapei Zahav (dunsguide.co.il) **SOURCE_RESTRICTED** (HTTP 403) |
+| באקה אל-גרביה | 2 | Google, B144 | 4 | 4 | 67% | 2 Abu Tarek listing variants flagged `POSSIBLE_DUPLICATE` of each other |
+| אום אל-פחם | 1 | Google, B144, Dapei Zahav | 5 | 5 | 83% | סירמקס גלרי — strong ceramics-specific candidate |
+| חדרה | 9 | Google, B144 | 3 | 1 | 10% | 1 clean new (קשת בענן); "חן ניסים קרמיקה" flagged `NEEDS_REVIEW` vs existing "חן קרמיקה"; "אברהם קראדי ובניו" **resolved as NOT a Hadera business** — confirmed via Or Akiva's own B144 listing (address ההדס 23) that this is the same already-listed Or Akiva record bleeding into Hadera search results |
+| כפר יאסיף | 0 | Google, B144 | 3 | 2 | 100%* | "שריף הזימה בע\"מ" flagged `POSSIBLE_DUPLICATE`/multi-branch — same name now seen under **3 different localities** (Abu Snan existing DB record, Kafr Yasif, and Tamra) — see cross-cutting duplicates section |
+| ערערה — וואדי ערה (Triangle) | 0 | Google, B144 | 1 | 1 | 100% | ⚠️ Name-collision caught: unqualified search returns Ar'ara BaNegev (different locality); needed explicit exclusion |
+| קלנסווה | 1 | Google, B144, Easy | 3 | 3 | 75% | |
+| טייבה | 0 | Google, B144 | 2 | 2 | 100% | |
+| ירכא | 4 | Google, B144 | 3 | 1 | 20% | "מולא עאמר" likely same business as existing "עמאר מולא ובניו" — `POSSIBLE_DUPLICATE` |
+| אבו סנאן | 1 | Google, B144 | 2 | 0 | 0% | Both results confirm/corroborate the existing record (2nd-source upgrade for Pass 2), no new name |
+| נהריה | 0 | Google, B144 | 4 | 4 | 100% | All general "building materials" — ceramic/sanitary relevance not yet confirmed |
+| שלומי | 0 | Google, B144 | 3 | 3 | 100% | "גליל קרמיקה" — ceramics-specific |
+| כרמיאל | 7 | Google, B144 | 5 | 2 | 22% | 2 exact DB matches, 1 excluded as `OUT_OF_SCOPE` (רדימיקס — ready-mix concrete manufacturer, not a ceramics/sanitary retailer) |
+| טמרה (Tamra) | 1 | Google, B144 (direct fetch) | 7 | 3 | 75% | "סיגמא טופ" — sink **manufacturer**, valuable find; "רויאל קרמיקה" and "סאייג ובניו" flagged cross-locality duplicates (also seen in Carmiel / Nazareth-Nof HaGalil) |
+| שפרעם | 2 | Google, B144 | 4 | 1 | 33% | |
+| נצרת | 3 | Google, B144 | 1 | 1 | 25% | |
+| נוף הגליל | 3 | Google, B144 | 2 | 1 | 25% | |
+| סח'נין | 7 | Facebook, Instagram | 2 | 0 | 0% | Both Instagram results **corroborate existing records** (אקספו קרמיקה; מ.דוכי) — good Pass-2 evidence, no new discovery — locality looks genuinely near-saturated |
+| עראבה | 2 | Google, B144 (direct fetch) | 10 | ~6 | 75% | General "building materials" category — ceramic/sanitary relevance **not yet confirmed** for any; 1 result was actually a Kafr Kanna listing bleeding in (excluded), "עץ המחלף" cross-listed with Kafr Qara |
+| כפר מנדא | 3 | Google, B144, Dapei Zahav | 2 | 1 | 25% | 1 result corroborated existing record via 2nd source |
+| עכסל (Iksal) | 0 | Google, B144 | 0 | 0 | — | **SEARCH FAILURE** — no locality-specific results surfaced at all; needs a different query strategy next round (pure Arabic script, alternate transliteration, or direct municipal source) |
+| יפיע | 2 | Google, B144 | 5 | 3 | 60% | |
+| כפר כנא | 1 | Google, B144 | 3 | 2 | 67% | "עבד אל האדי" — same surname pattern as a Yafia candidate, likely a related but distinct family business |
+| אום אל-פחם | — | — | — | — | — | (see above, session 1) |
+| ערערה | — | — | — | — | — | (see above, session 1) |
+| כפר קרע | 2 | Google, B144 (direct fetch) | 11 | ~7 | 78% | General "building materials" — relevance not yet confirmed; "השלום חומרי בניין" flagged `NEEDS_REVIEW` — same generic name as the Beit Jann candidate, likely coincidental (different regions) not the same business |
+| ג'ת (Jatt) | 0 | Google, B144, t.co.il | 1 | 1 | 100% | ⚠️ **Search failure resolved**: two attempts returned only "קריית גת" (a different, southern city) — only succeeded once the query explicitly added "המשולש" (Triangle) and excluded "קרית/קריית גת" |
+| טירה | 5 | Google, B144 | 1 | 1 | 17% | |
+| פרדס חנה-כרכור | 0 | Google, B144 | 1 | 1 | 100% | |
+| אור עקיבא | 3 | Google, B144 | 1 | 0 | 0% | Confirms/closes the Hadera cross-listing (see above) — no new candidate |
+| נתניה | 11 | Google, B144 | 4 | 1 | 8% | "אלוני — נתניה" new (matches existing chain-branch naming pattern used elsewhere); "גולדן ברזים וקרמיקה סנטר" flagged `POSSIBLE_DUPLICATE` — identical name to an existing Tira record |
 
-### אום אל-פחם (Umm al-Fahm)
-- B144 CANDIDATES: 4 — חומרי בניין בית המקצוען, חומרי בניין אבו סמי ובניו, סירמקס גלרי בע"מ (ceramics-specific: porcelain tiles, showers, jacuzzis, bathroom cabinets, sanitary ware, faucets — strong relevance), חומרי בניין מ.ר.מ.ר
-- DAPEI ZAHAV CANDIDATES: 1 — אחמד יוסף מחמוד חומרי בנין בע"מ
-- **UNION CANDIDATE COUNT: 5**
-- CURRENT_DB_COUNT: 1 (קרמיקה המשולש לקרמיקה ושיש בע"מ)
-- MISSING_CANDIDATES: 5
-- COVERAGE_GAP_PERCENTAGE: 83%
+\* Kafr Yasif's 100% gap uses NET NEW=2 (excluding the flagged Sherif Al-Hzaimah duplicate) against DB=0.
 
-### חדרה (Hadera)
-- B144 CANDIDATES: 3 — חן ניסים קרמיקה (possible dup of existing "חן קרמיקה בע"מ" — needs Pass 2 name-disambiguation), אברהם קראדי ובניו (⚠️ same exact name already seen attributed to **Or Akiva** in an earlier round — likely the same multi-department store being aggregated under both localities by directory sites; do not treat as 2 distinct businesses without checking which city is correct), קשת בענן (new, distinct name — building materials + ceramics/porcelain + sanitary + showers)
-- **UNION CANDIDATE COUNT: ~2 net-new** (1 likely duplicate of Or Akiva excluded from the net-new count, 1 name-collision with existing record flagged for review)
-- CURRENT_DB_COUNT: 9
-- MISSING_CANDIDATES: 2 (net-new, pending dedup resolution)
-- COVERAGE_GAP_PERCENTAGE: ~18% — Hadera is genuinely close to well-covered; the user's example here likely reflects specific known businesses not yet cross-checked by name (worth asking which specific Hadera business(es) were expected, if the gap still seems wrong after Pass 2).
+## Cross-cutting duplicate flags (do not resolve automatically — Pass 2 required)
 
-### כפר יאסיף (Kafr Yasif)
-- B144 CANDIDATES: 3 — שריף הזימה בע"מ (⚠️ near-identical to existing DB record "קרמיקה שריף הזימה" filed under **Abu Snan** — same family business likely operating in both neighboring villages, or a locality-attribution error; needs Pass 2 check), הזימה מופיד חומרי בניין (same surname, possibly related business — not necessarily the same one), דאוד אליאס נמר (חומרי בניין)
-- **UNION CANDIDATE COUNT: 3** (1 flagged likely-duplicate-or-branch of the existing Abu Snan record)
-- CURRENT_DB_COUNT: 0
-- MISSING_CANDIDATES: 2-3 depending on the Abu Snan dedup outcome
-- COVERAGE_GAP_PERCENTAGE: 100%
+1. **"שריף הזימה" (Sherif Al-Hzaimah)** — same/similar name surfaced under **Abu Snan** (existing DB record), **Kafr Yasif**, and **Tamra**. Most-duplicated name in this sweep. Could be one family business with a wide service area being cross-listed by directories, or 2-3 real distinct relatives' businesses. Needs direct verification (address + phone per location) before any merge or multi-branch decision.
+2. **"רויאל קרמיקה וכלים סנטריים" (Royal Ceramics)** — identical listing text surfaced under both **Carmiel** and **Tamra** category pages.
+3. **"סאייג ובניו בע\"מ — יבואני קרמיקה ושיש"** — appears (correctly, as an importer) across **Nazareth**, **Nof HaGalil**, and **Tamra** category pages. Likely a single importer with wide distribution reach rather than 3 branches — flag for Pass 2 to confirm actual base location(s).
+4. **"עץ המחלף בע\"מ"** — appears under both **Arraba** and **Kafr Qara** category pages — same cross-listing pattern.
+5. **"גולדן ברזים וקרמיקה סנטר"** — identical name under both existing **Tira** DB record and this round's **Netanya** discovery — needs a locality check (may be 2 branches, or a directory error).
+6. **"מולא עאמר" / "עמאר מולא ובניו"** (Yarka) — likely the same business with name-order variation between two directory listings.
+7. **"החומרי בניין השלום" / "השלום חומרי בניין"** (Beit Jann vs. Kafr Qara) — same generic name, different regions — likely **coincidental**, not the same business, but flagged for a quick sanity check.
+8. **Abu Tarek listing variants** (Baqa al-Gharbiyye) — 2 B144 listings for what looks like one business under slightly different legal-name formatting.
 
-### ערערה — וואדי ערה / המשולש (Ar'ara, Triangle — NOT Ar'ara BaNegev)
-- ⚠️ **Locality-name collision caught**: Israel has two places named "ערערה" — this one in the northern Triangle (near Umm al-Fahm/Kafr Qara) and a distinct Bedouin town "ערערה בנגב" in the South. An initial broad search returned only the Negev one; a refined query (`-בנגב`) was needed to reach the correct locality. Recording this explicitly so future rounds don't merge or confuse the two.
-- B144 CANDIDATES: 1 — מוואסי - קרמיקה עארה (specifically ceramics category)
-- **UNION CANDIDATE COUNT: 1**
-- CURRENT_DB_COUNT: 0
-- MISSING_CANDIDATES: 1 (likely more — only 1 source family tried)
-- COVERAGE_GAP_PERCENTAGE: 100%
+## Locality-name disambiguation log
 
-### קלנסווה (Qalansuwa)
-- B144 CANDIDATES: 2 — ג. אל-חסאן (חומרי בניין), חומרי בניין רבוס בע"מ
-- EASY CANDIDATES: 1 — חומרי בנין ג'יוסי, אל קודס 18 (has a specific street address, stronger candidate)
-- **UNION CANDIDATE COUNT: 3**
-- CURRENT_DB_COUNT: 1 (אל נעים מתאני)
-- MISSING_CANDIDATES: 3
-- COVERAGE_GAP_PERCENTAGE: 75%
+- **Ar'ara — Wadi Ara/Triangle** vs. **Ar'ara BaNegev**: distinct places, confirmed collision, resolved by excluding "בנגב" from the query.
+- **Jatt (ג'ת, Triangle)** vs. **Kiryat Gat (קריית גת)**: distinct places; unqualified "ג'ת" searches returned only Kiryat Gat results twice. Resolved by adding "המשולש" (Triangle) and excluding "קרית/קריית גת" explicitly.
+- **Beit Jann (בית ג'ן)** vs. **Beit Jamal (בית ג'מאל)**: a monastery complex with an unrelated name, surfaced once as search noise — not a real collision risk (very different names), but noted since a first-pass reader might confuse them.
 
-### טייבה (Tayibe)
-- B144 CANDIDATES: 2 — חומרי בנין אלאמיר, אוקינוס חומרי בנין
-- **UNION CANDIDATE COUNT: 2**
-- CURRENT_DB_COUNT: 0
-- MISSING_CANDIDATES: 2
-- COVERAGE_GAP_PERCENTAGE: 100%
+## Search failures / source blockers
 
-### ג'ת (Jatt)
-- No Jatt-specific candidates surfaced in the combined query run this pass (results skewed toward Qalansuwa/Tayibe). **NOT_SWEPT_YET** — needs a dedicated query next round, same as the localities in the "not yet swept" list above.
+- **Iksal (עכסל)**: zero locality-specific candidates found across 2 source families tried. Genuine `SEARCH_FAILURE_SIGNAL` — needs investigation next round (try Arabic script directly, alternate Hebrew spelling "אכסאל", or a direct B144/municipal category URL rather than a blended query).
+- **dunsguide.co.il**: returned HTTP 403 on the one URL tried (Beit Jann). Not bypassed. Other Dapei Zahav (d.co.il) URLs worked fine, so this appears to be dunsguide.co.il specifically, not the whole source family.
 
----
+## Source families actually exercised this session
 
-## Totals for this pass
+Used across the full sweep: **Google Search** (via WebSearch), **B144** (search + direct category-page fetches — direct fetches were far more productive than relying on search-result summaries), **Dapei Zahav** (d.co.il), **Easy**, **Facebook + Instagram** (tried specifically for Sakhnin — corroborated 2 existing records, found 0 new).
 
-- **Localities with a real discovery attempt:** 9 (8 with results, 1 inconclusive/needs re-query)
-- **Total net-new candidates surfaced:** ~26 (across all localities above, before Pass 2 dedup/verification)
-- **Restricted sources encountered:** 1 (dunsguide.co.il, HTTP 403 on Beit Jann — not bypassed)
-- **Cross-locality duplicate risks flagged:** 3 (Abu Tarek variants in Baqa al-Gharbiyye; אברהם קראדי ובניו appearing under both Hadera and Or Akiva; שריף הזימה family businesses appearing under both Abu Snan and Kafr Yasif)
-- **Locality-name collision caught and avoided:** 1 (Ar'ara Triangle vs. Ar'ara BaNegev)
+**Still not used this session**: Google Maps place search, Waze, manufacturer/importer dealer-list crawling (beyond incidental mentions), municipal business directories, industrial-zone directories. These remain open — likely to raise candidate counts further, especially for the localities currently showing 0-1 net-new.
 
-## Source families actually exercised this pass
+## Totals for this session (Session 2 — 21 localities)
 
-Used: Google Search (via WebSearch, approximating general search + surfacing B144/Dapei Zahav/Easy result pages), B144, Dapei Zahav, Easy.
-**Not used this pass** (tooling/access limits, not skipped by choice): direct Google Maps place search, Waze, Facebook page search, Instagram, manufacturer/importer dealer-list crawling, municipal directories, industrial-zone directories. These remain open for Pass 1 continuation and would very likely raise the candidate counts above further, especially Facebook (many small Arab-sector businesses maintain only a Facebook page, no formal directory listing).
+- Localities swept: Yarka, Abu Snan, Nahariya, Shlomi, Carmiel, Tamra, Shefa-Amr, Nazareth, Nof HaGalil, Sakhnin, Arraba, Kafr Manda, Iksal (failed), Yafia, Kafr Kanna, Kafr Qara, Jatt, Tira, Pardes Hanna-Karkur, Or Akiva, Netanya
+- Net-new candidates this session: **~39**
+- Cross-locality duplicates flagged this session: 6 (see above)
+- Search failures this session: 1 (Iksal)
+- Restricted sources this session: 0 new (dunsguide.co.il already logged in session 1)
 
-## Next steps
+## Grand totals (Session 1 + Session 2 combined)
 
-1. Continue Pass 1 discovery for the remaining ~19 unswept localities from the Pass 1A list.
-2. Re-run Jatt with a dedicated query.
-3. Retry Beit Jann's dunsguide.co.il listing via an alternative access path (or accept as permanently `SOURCE_RESTRICTED` and rely on other families).
-4. Resolve the 3 flagged cross-locality duplicate risks before any candidate becomes a production record.
-5. Only then begin Pass 2 verification (phone/address/category confirmation, dedup, scoring) and commit real enrichments to `index.html` — per the mandatory deploy-verification workflow already established.
+```
+LOCALITIES SWEPT THIS SESSION: 21 (session 2) — 9 in session 1 — 30 locality-attempts total,
+  29 DISTINCT NAMED LOCALITIES (Jatt attempted in both sessions: failed → resolved)
+
+TOTAL PRIORITY LOCALITIES SWEPT: 29 / 29 named in the Pass 1A list
+PRIORITY LOCALITIES REMAINING: 0 from the named list
+  (geography-master expansion BEYOND the named list has not started — see Next Steps)
+
+CANDIDATES BEFORE (session 1 start): 0 discovery-pool candidates (production DB only, 280 records)
+CANDIDATES AFTER (this checkpoint): ~59 net-new DISCOVERED_UNVERIFIED candidates
+  (~20 from session 1 + ~39 from session 2), before Pass-2 dedup resolution
+NET NEW CANDIDATES: ~59
+
+BY SOURCE (approximate, both sessions):
+  Google Search:      ~30 locality searches run
+  B144:                dominant source — surfaced the large majority of candidates,
+                        both via search-result titles and direct category-page fetches
+  Dapei Zahav:          3 direct hits (Umm al-Fahm, Kafr Manda x2)
+  Easy:                 1 direct hit (Qalansuwa)
+  Facebook/Instagram:   tried for Sakhnin only — 0 new, 2 corroborations
+  Google Maps:          not used (no direct Maps API access — B144/directory results
+                        substitute partially but are not equivalent)
+  Waze:                 not used
+  Dealer lists:         not deliberately used this round (some importer names surfaced
+                        incidentally, e.g. Sayegh & Sons)
+  Municipal:            not used
+  Industrial zones:     not used as a separate search axis (some candidates are
+                        incidentally in industrial zones per their listed address)
+
+BY REGION: all candidates this pass are in the NORTH/SHARON commercial regions
+  (Galilee, Triangle, Wadi Ara, Carmiel/Karmiel area, Netanya/Sharon coast)
+
+TOP LOCALITIES BY NET-NEW CANDIDATE COUNT:
+  1. אום אל-פחם — 5
+  2. נהריה — 4
+  3. באקה אל-גרביה — 4
+  4. כפר קרע — ~7 (highest raw count, pending relevance confirmation)
+  5. עראבה — ~6 (pending relevance confirmation)
+  6. שלומי — 3
+  7. יפיע — 3
+  8. קלנסווה — 3
+  9. טמרה — 3
+  10. כפר יאסיף — 2 (net of dup)
+  11. כפר כנא — 2
+  12. כרמיאל — 2
+  13. טייבה — 2
+  (remaining localities: 0-1 net-new each)
+
+LOCALITIES WITH SURPRISINGLY LOW / ZERO NET-NEW COUNTS:
+  - עכסל (Iksal) — 0, genuine search failure, needs different approach
+  - סח'נין — 0 new but well-corroborated, likely near-saturated (DB already had 7)
+  - אבו סנאן — 0 new, likely near-saturated (existing record corroborated twice)
+  - אור עקיבא — 0 new, existing coverage (3) appears accurate/complete for what's been tried
+
+SEARCH FAILURES / SOURCE BLOCKERS:
+  - עכסל: 0 results after 2 source families — unresolved
+  - dunsguide.co.il: HTTP 403 on Beit Jann — unresolved, other sources substituted
+
+AMBIGUOUS LOCALITIES FOUND: 2 confirmed collisions
+  (Ar'ara Triangle vs. Ar'ara BaNegev; Jatt Triangle vs. Kiryat Gat)
+
+POSSIBLE DUPLICATES: 8 flagged (listed in full above), none resolved/merged —
+  all held for Pass 2
+
+PASS-1 SATURATION STATUS: NOT saturated overall. High-population/urban localities
+  (Umm al-Fahm, Nahariya, Baqa al-Gharbiyye, Kafr Qara, Arraba) are still producing
+  strong new-candidate rates even from just 2 source families (Google+B144) — Facebook/
+  Instagram/Maps/Waze/dealer-lists/municipal have barely been touched and would likely
+  raise these further. Only Abu Snan, Sakhnin, and Or Akiva show signs of approaching
+  saturation (multiple sources, low/zero new names) — but even these have not had the
+  full 13-source-family treatment yet.
+```
+
+## Next steps (Pass 1 continuation — NOT Pass 2)
+
+1. Investigate the Iksal search failure with an alternate strategy.
+2. Retry dunsguide.co.il for Beit Jann via an alternate access path, or accept as permanently restricted.
+3. Add Facebook/Instagram discovery for the localities that showed strong candidate counts but haven't had social-media search yet (Umm al-Fahm, Baqa al-Gharbiyye, Nahariya, Kafr Qara, Arraba are the highest-value targets given their current recall rates).
+4. Add Google Maps / Waze discovery where accessible.
+5. Expand beyond the named 29-locality list using the geography master (per the original brief) — the North/Triangle/Wadi Ara area has been the focus so far; Center, Jerusalem, South, Sharon-Haifa still need their own dedicated Pass 1 sweeps beyond what was already spot-checked in the earlier session.
+6. Only after further saturation — begin Pass 2 verification and dedup resolution, starting with the 8 flagged duplicate clusters.
+
+**Pass 2 has not begun. The live database (`index.html`, 280 records) is unchanged this session.**
