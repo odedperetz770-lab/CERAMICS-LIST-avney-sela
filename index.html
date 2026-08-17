@@ -180,6 +180,32 @@
   .badge.cat-private{background:rgba(147,164,184,.15); color:#c3d0dd; border-color:rgba(147,164,184,.35);}
   .badge.cat-luxury{background:rgba(224,164,88,.15); color:var(--accent-2); border-color:rgba(224,164,88,.4);}
   .badge.cat-importer{background:rgba(122,142,231,.15); color:#a9b8f4; border-color:rgba(122,142,231,.4);}
+  .badge.conf-9{background:rgba(37,140,80,.22); color:#5fd897; border-color:rgba(37,140,80,.5);}
+  .badge.conf-7{background:rgba(63,182,168,.18); color:#7fd9c9; border-color:rgba(63,182,168,.45);}
+  .badge.conf-5{background:rgba(216,193,74,.18); color:#e5d27a; border-color:rgba(216,193,74,.45);}
+  .badge.conf-3{background:rgba(224,164,88,.18); color:var(--accent-2); border-color:rgba(224,164,88,.45);}
+  .badge.conf-1{background:rgba(217,112,102,.18); color:var(--danger); border-color:rgba(217,112,102,.45);}
+  .badge.cp-A{background:rgba(37,140,80,.2); color:#5fd897; border-color:rgba(37,140,80,.45);}
+  .badge.cp-B{background:rgba(63,182,168,.16); color:#7fd9c9; border-color:rgba(63,182,168,.4);}
+  .badge.cp-C{background:rgba(216,193,74,.16); color:#e5d27a; border-color:rgba(216,193,74,.4);}
+  .badge.cp-D{background:rgba(217,112,102,.16); color:var(--danger); border-color:rgba(217,112,102,.4);}
+  .badge.cp-REVIEW{background:rgba(147,164,184,.15); color:#c3d0dd; border-color:rgba(147,164,184,.35);}
+  .controls-extra{
+    display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+    margin:-8px 0 18px;
+  }
+  .controls-extra label{
+    display:flex; align-items:center; gap:6px;
+    font-size:12.5px; color:var(--text-dim);
+    background:var(--panel); border:1px solid var(--border);
+    padding:7px 12px; border-radius:20px; cursor:pointer;
+  }
+  .controls-extra select{
+    background:var(--panel); border:1px solid var(--border); color:var(--text);
+    padding:7px 12px; border-radius:20px; font-size:12.5px; font-family:inherit;
+  }
+  .brands-row{font-size:12px; color:var(--text-dim);}
+  .brands-row b{color:#c3d0dd;}
 
   .meta-row{
     display:flex;
@@ -275,6 +301,27 @@
       </select>
     </div>
     <button class="reset-btn" onclick="resetFilters()">איפוס סינון</button>
+  </div>
+
+  <div class="controls-extra">
+    <label><input type="checkbox" id="hasWhatsapp"> יש WhatsApp</label>
+    <label><input type="checkbox" id="hasEmail"> יש אימייל</label>
+    <label><input type="checkbox" id="hasWebsite"> יש אתר</label>
+    <select id="confidenceFilter">
+      <option value="">כל רמות הביטחון</option>
+      <option value="9">גבוה מאוד (9-10)</option>
+      <option value="7">גבוה (7-8)</option>
+      <option value="5">בינוני (5-6)</option>
+      <option value="3">נמוך (3-4)</option>
+      <option value="1">נמוך מאוד (1-2)</option>
+    </select>
+    <select id="potentialFilter">
+      <option value="">כל פוטנציאל מסחרי</option>
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+      <option value="D">D</option>
+    </select>
   </div>
 
   <div class="stats-bar">
@@ -584,6 +631,12 @@ const businesses = [
   {name:"דקל קרמיקה — צומת בילו",category:"אולם יוקרה",region:"מרכז",city:"קרית עקרון",address:"אזור התעשייה עקרון 2000, צומת ביל\"ו",phone:"",note:"אולם תצוגה לאדריכלים, מעצבים, קבלנים ולקוחות פרטיים."},
   {name:"טובול קרמיקה — ביל\"ו סנטר",category:"רשת ואולם תצוגה",region:"מרכז",city:"קרית עקרון",address:"המלך חסן השני 6, קרית עקרון",phone:"",note:"חנות קרמיקה במתחם ביל\"ו סנטר."},
   {name:"שיא הקרמיקה",category:"חנות פרטית / סיטונאי",region:"מרכז",city:"בני ברק",address:"הרב כהנמן 92, בני ברק",phone:"",note:"קרמיקה וארונות אמבטיה."},
+
+  // === סבב מחקר חדש — 2026-08-17 — ירושלים/מעלה אדומים/מבשרת ציון + מג'דל שמס (צפון) ===
+  {name:"בר עמי — מעלה אדומים",category:"רשת ואולם תצוגה",region:"ירושלים",city:"מעלה אדומים",address:"איתם 3, אזור התעשייה, מעלה אדומים",phone:"02-5357299",note:"סניף/אאוטלט של רשת בר-עמי במעלה אדומים; משווק מורשה של Hansgrohe. הערת בדיקה: קיימת ברשומות המאגר רשומה נוספת \"בר-עמי (BARAMI)\" בירושלים ללא כתובת/טלפון שמתארת קומפלקס דומה בשטח — ייתכן שמדובר באותו עסק בדיוק; לא מוזגו/נערכו רשומות קיימות (בהתאם לכלל אי-נגיעה בשדות קיימים), נדרשת בדיקה אנושית להחלטה אם למזג.",website:"https://www.barami.co.il/",brands:["Hansgrohe"],business_type:"SHOWROOM",confidence_score:8,confidence_notes:"כתובת וטלפון מאומתים משלושה מקורות עצמאיים תואמים (דף משווק רשמי של Hansgrohe, easy.co.il, בזק B144); זהות הרשת מאומתת מול אתר בר-עמי הרשמי וכתבת ynet על פתיחת סניף דגל.",commercial_potential:"A",commercial_potential_notes:"רשת ארצית מבוססת; כתבת ynet מתארת סניף דגל בהשקעה של כ-15 מיליון ₪ על שטח של כ-2,000 מ\"ר.",activity_status:"ACTIVE_CONFIRMED",last_verified_at:"2026-08-17",sources:["https://www.hansgrohe.co.il/חנות/בר-עמי-אווטלט-מעלה-אדומים/","https://easy.co.il/en/page/24499610","https://www.b144.co.il/b144_sip/401C04134074635441120115/","https://www.barami.co.il/","https://www.ynet.co.il/article/rkzq00pk0t"]},
+  {name:"קרמיקה בגולן בע\"מ",category:"חנות פרטית / סיטונאי",region:"צפון",city:"מג'דל שמס",address:"מג'דל שמס (כתובת מדויקת לא פורסמה באתר הרשמי)",phone:"050-8544202",note:"עסק קרמיקה מקומי במג'דל שמס — יישוב שלא היה מיוצג עד כה במאגר.",email:"retsof44@gmail.com",business_type:"RETAIL_STORE",confidence_score:6,confidence_notes:"שם, טלפון ואימייל מאומתים מול האתר הרשמי של העסק; טרם אומת ממקור שני עצמאי (פייסבוק/גוגל מפות/Waze).",commercial_potential:"C",commercial_potential_notes:"עסק מקומי קטן ביישוב קטן; תורם לכיסוי גיאוגרפי של אזור הגולן.",activity_status:"ACTIVE_LIKELY",last_verified_at:"2026-08-17",sources:["https://www.kramikabgolan.com/"]},
+  {name:"גיד מחסני קרמיקה וסניטריה",category:"חנות פרטית / סיטונאי",region:"ירושלים",city:"ירושלים",address:"הנביאים 59, ירושלים",phone:"",note:"מחסני קרמיקה וכלים סניטריים; מיקום שונה מהריכוז הקיים בתלפיות/רוממה, מרחיב את הכיסוי בתוך העיר. טלפון לא נכלל — הדף מסתיר אותו מאחורי כפתור \"הצג מספר\" ולא נאסף.",business_type:"WHOLESALE",confidence_score:4,confidence_notes:"כתובת ממקור יחיד (בזק B144, מדריך עסקים ולא מקור רשמי); ללא אימות ממקור שני. דורש השלמת טלפון ואימות נוסף.",commercial_potential:"REVIEW",commercial_potential_notes:"אין מספיק מידע מאומת להערכת פוטנציאל מסחרי.",activity_status:"ACTIVITY_UNCLEAR",last_verified_at:"2026-08-17",sources:["https://www.b144.co.il/B144_sip/4A1404134470655D4C100116417762544B/"]},
+  {name:"עמודי שלמה — מבשרת ציון",category:"חנות פרטית / סיטונאי",region:"ירושלים",city:"מבשרת ציון",address:"החוצבים 5, מבשרת ציון",phone:"",note:"סניף של רשת עמודי שלמה (ברשומה הקיימת במאגר הרשת משויכת לרמלה/ראשון לציון — זהו סניף נפרד ולא כפילות); קרמיקה לאמבטיה, ארונות אמבטיה, גרניט פורצלן וברזים. טלפון לא נכלל — המקור הציג רק מספר פקס (02-5700010) ומספר טלפון חלקי/שגוי.",business_type:"CHAIN",confidence_score:4,confidence_notes:"כתובת ממקור יחיד (מדריך עסקים, לא רשמי); מספר טלפון תקין לא אותר. דורש אימות נוסף.",commercial_potential:"REVIEW",commercial_potential_notes:"סניף של רשת קיימת אך חסר אימות טלפון להערכה מלאה.",activity_status:"ACTIVITY_UNCLEAR",last_verified_at:"2026-08-17",sources:["https://www.abc-israel.it/ceramics/b183/קרמיקה+עמודי+שלמה+במבשרת+ציון/"]},
 ];
 
 // שדות שנותרים ריקים במכוון לכל עסק (איש קשר / אימייל / תשלום)
@@ -608,6 +661,11 @@ const regionFilter = document.getElementById('regionFilter');
 const paymentFilter = document.getElementById('paymentFilter');
 const countShown = document.getElementById('countShown');
 const countTotal = document.getElementById('countTotal');
+const hasWhatsapp = document.getElementById('hasWhatsapp');
+const hasEmail = document.getElementById('hasEmail');
+const hasWebsite = document.getElementById('hasWebsite');
+const confidenceFilter = document.getElementById('confidenceFilter');
+const potentialFilter = document.getElementById('potentialFilter');
 
 function populateSelect(select, values){
   values.forEach(v=>{
@@ -632,11 +690,23 @@ function escapeHtml(str){
   }[s]));
 }
 
+function confidenceClass(score){
+  if(score>=9) return 'conf-9';
+  if(score>=7) return 'conf-7';
+  if(score>=5) return 'conf-5';
+  if(score>=3) return 'conf-3';
+  return 'conf-1';
+}
+
 function render(){
   const q = searchBox.value.trim().toLowerCase();
   const cat = categoryFilter.value;
   const reg = regionFilter.value;
   const pay = paymentFilter.value;
+
+  const confMin = confidenceFilter.value ? Number(confidenceFilter.value) : null;
+  const confMax = confMin ? (confMin===9?10:confMin+1) : null;
+  const potVal = potentialFilter.value;
 
   const filtered = businesses.filter(b=>{
     const matchesQuery = !q || b.name.toLowerCase().includes(q);
@@ -644,7 +714,14 @@ function render(){
     const matchesReg = !reg || b.region === reg;
     const bPayment = b.payment || "טרם עודכן";
     const matchesPay = !pay || bPayment === pay;
-    return matchesQuery && matchesCat && matchesReg && matchesPay;
+    const matchesWhatsapp = !hasWhatsapp.checked || !!b.whatsapp;
+    const matchesEmail = !hasEmail.checked || !!b.email;
+    const matchesWebsite = !hasWebsite.checked || !!b.website;
+    const matchesConfidence = !confMin || (b.confidence_score >= confMin && b.confidence_score <= confMax);
+    const matchesPotential = !potVal || b.commercial_potential === potVal;
+    return matchesQuery && matchesCat && matchesReg && matchesPay &&
+           matchesWhatsapp && matchesEmail && matchesWebsite &&
+           matchesConfidence && matchesPotential;
   });
 
   grid.innerHTML = "";
@@ -667,9 +744,14 @@ function render(){
         <h3>${escapeHtml(b.name)}</h3>
         <span class="badge ${badgeClass}">${escapeHtml(b.category)}</span>
       </div>
+      ${b.confidence_score || b.commercial_potential ? `<div class="card-top" style="gap:6px;">
+        ${b.confidence_score ? `<span class="badge ${confidenceClass(b.confidence_score)}" title="${escapeHtml(b.confidence_notes||'')}">ביטחון במידע: ${b.confidence_score}/10</span>` : ''}
+        ${b.commercial_potential ? `<span class="badge cp-${b.commercial_potential}" title="${escapeHtml(b.commercial_potential_notes||'')}">פוטנציאל מסחרי: ${b.commercial_potential}</span>` : ''}
+      </div>` : ''}
       <div class="meta-row"><span class="icon">📍</span><span>${escapeHtml(b.city)} — אזור ${escapeHtml(b.region)}</span></div>
       ${b.address ? `<div class="meta-row"><span class="icon">🏠</span><span>${escapeHtml(b.address)}</span></div>` : ''}
       ${b.phone ? `<div class="meta-row"><span class="icon">📞</span><span>${escapeHtml(b.phone)}</span></div>` : ''}
+      ${b.brands && b.brands.length ? `<div class="brands-row"><b>מותגים: </b>${escapeHtml(b.brands.join(', '))}</div>` : ''}
       <div class="note">${escapeHtml(b.note)}</div>
       <div class="fill-fields">
         <div><b>איש קשר</b>${b.contact || "להשלמה"}</div>
@@ -677,6 +759,11 @@ function render(){
         <div><b>אמצעי תשלום</b>${b.payment || "טרם עודכן"}</div>
         <div><b>מקור</b>${b.phone ? "משווק מורשה" : "אתר/מדריך עסקים"}</div>
       </div>
+      ${(b.website || b.email || b.whatsapp) ? `<div class="link-row">
+        ${b.website ? `<a href="${escapeHtml(b.website)}" target="_blank" rel="noopener noreferrer">🌐 אתר</a>` : ''}
+        ${b.email ? `<a href="mailto:${escapeHtml(b.email)}">📧 אימייל</a>` : ''}
+        ${b.whatsapp ? `<a href="https://wa.me/${escapeHtml(b.whatsapp)}" target="_blank" rel="noopener noreferrer">🟢 WhatsApp</a>` : ''}
+      </div>` : ''}
     `;
     grid.appendChild(card);
   });
@@ -687,6 +774,11 @@ function resetFilters(){
   categoryFilter.value = "";
   regionFilter.value = "";
   paymentFilter.value = "";
+  hasWhatsapp.checked = false;
+  hasEmail.checked = false;
+  hasWebsite.checked = false;
+  confidenceFilter.value = "";
+  potentialFilter.value = "";
   render();
 }
 
@@ -694,6 +786,11 @@ searchBox.addEventListener('input', render);
 categoryFilter.addEventListener('change', render);
 regionFilter.addEventListener('change', render);
 paymentFilter.addEventListener('change', render);
+hasWhatsapp.addEventListener('change', render);
+hasEmail.addEventListener('change', render);
+hasWebsite.addEventListener('change', render);
+confidenceFilter.addEventListener('change', render);
+potentialFilter.addEventListener('change', render);
 
 render();
 </script>
