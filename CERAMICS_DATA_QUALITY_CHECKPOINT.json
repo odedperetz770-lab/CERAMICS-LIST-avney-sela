@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-08-17",
+  "existing_records": 280,
+  "discovery_candidates": 79,
+  "reconciliation": {
+    "live_site_business_count": 280,
+    "index_1_html_business_count": 283,
+    "overlap_by_exact_name": 276,
+    "existing_only_in_live": 4,
+    "discovery_only_in_index_1_fully_missing": 7,
+    "overlap_records_with_richer_fields_in_index_1": 13,
+    "total_ready_to_apply_enrichment_records": 20
+  },
+  "contact_coverage": {
+    "existing_database": {
+      "phone": 183,
+      "mobile_heuristic": 3,
+      "whatsapp": 0,
+      "email": 1,
+      "website": 1,
+      "facebook": 0,
+      "instagram": 0
+    },
+    "discovery_candidates": {
+      "phone": 9,
+      "mobile": 4,
+      "whatsapp": 0,
+      "email": 2,
+      "website": 1,
+      "facebook": 3,
+      "instagram": 3
+    }
+  },
+  "verification": {
+    "existing_database": {
+      "score_9_10": 0,
+      "score_7_8": 1,
+      "score_5_6": 1,
+      "score_3_4": 2,
+      "score_1_2": 0,
+      "unscored": 276
+    },
+    "discovery_candidates": {
+      "score_9_10": 0,
+      "score_7_8": 0,
+      "score_5_6": 2,
+      "score_3_4": 1,
+      "score_1_2": 0,
+      "unscored": 76
+    }
+  },
+  "legal_public_review": {
+    "checked": 0,
+    "no_result": 0,
+    "public_record": 0,
+    "review_required": 0,
+    "restricted": 0,
+    "not_checked": 79
+  },
+  "duplicates": {
+    "candidate_rows_flagged_possible_duplicate": 13,
+    "distinct_duplicate_groups": 7,
+    "needs_review_rows": 27
+  },
+  "conflicts": {
+    "address_conflicts_flagged": 2
+  },
+  "search_failures": {
+    "localities_zero_results": 1,
+    "source_blockers": 1
+  },
+  "bdi_status": "NOT_AUTHORIZED_OR_NOT_AVAILABLE"
+}
