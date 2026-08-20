@@ -1,0 +1,77 @@
+{
+  "generated_at": "2026-08-17T21:44:58.735Z",
+  "live_records": 280,
+  "brief_candidates_at_start": 138,
+  "actual_execution_start": 183,
+  "candidates_at_end": 206,
+  "net_new_from_brief": 68,
+  "net_new_this_execution": 23,
+  "distinct_localities_searched_this_execution": 15,
+  "total_candidate_localities_touched": 74,
+  "geography_master_rows": 1309,
+  "coverage_state_counts": {
+    "DISCOVERY_STARTED": 152,
+    "NOT_STARTED": 1138,
+    "PARTIAL": 13,
+    "HIGH_YIELD": 2,
+    "DISCOVERY_FAILURE_SIGNAL": 4
+  },
+  "geography_tier_counts": {
+    "TIER_A": 233,
+    "TIER_B": 37,
+    "TIER_C": 1039
+  },
+  "geography_tier_searched": {
+    "TIER_A": 167,
+    "TIER_B": 4
+  },
+  "tier_a_remaining": 66,
+  "category_relevance_counts": {
+    "CATEGORY_RELEVANCE_UNCONFIRMED": 98,
+    "CERAMICS_RELEVANCE_CONFIRMED": 107,
+    "CERAMICS_RELEVANCE_LIKELY": 1
+  },
+  "status_counts": {
+    "DISCOVERED_UNVERIFIED": 132,
+    "POSSIBLE_DUPLICATE": 13,
+    "NEEDS_REVIEW": 27,
+    "LIKELY_RELEVANT": 4,
+    "OUT_OF_SCOPE": 2,
+    "CATEGORY_RELEVANCE_UNCONFIRMED": 21,
+    "MULTI_BRANCH_POSSIBLE": 7
+  },
+  "candidates_with_any_visible_contact_or_address": 130,
+  "net_new_by_source_family_this_execution": {
+    "Dealer lists": 21,
+    "Municipal": 1,
+    "Dapei Zahav": 1
+  },
+  "top_localities_by_net_new_this_execution": {
+    "הרצליה": 4,
+    "טבריה": 3,
+    "אור יהודה": 2,
+    "פתח תקווה": 2,
+    "קצרין": 2,
+    "אבן יהודה": 1,
+    "ביר אל-מכסור": 1,
+    "זכרון יעקב": 1,
+    "כפר יאסיף": 1,
+    "כפר סבא": 1,
+    "כרמיאל": 1,
+    "מודיעין-מכבים-רעות": 1,
+    "נהריה": 1,
+    "נוף הגליל": 1,
+    "רמלה": 1
+  },
+  "authoritative_index_changed": false,
+  "authoritative_sha256_before": "19E3E409ABDE86DEBCFBF835312CDE2F64ABA818E470EA58CA5F012E1E40C923",
+  "candidates_before_golden_program": 206,
+  "net_new_golden_program": 0,
+  "golden_program_batches_completed": 5,
+  "golden_program_localities_processed": 100,
+  "golden_program_hebrew_queries": 100,
+  "golden_program_arabic_transliteration_queries": 36,
+  "golden_program_arabic_localities": 35,
+  "authoritative_sha256_after": "19E3E409ABDE86DEBCFBF835312CDE2F64ABA818E470EA58CA5F012E1E40C923",
+  "stop_reason": "Minimum 100-unit work checkpoint reached; indexed search became low-yield because results were dominated by service-area pages. Direct directory pages and browser/map sources remain for continuation."
+}

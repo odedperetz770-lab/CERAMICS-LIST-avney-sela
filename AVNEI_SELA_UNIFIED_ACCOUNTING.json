@@ -1,0 +1,45 @@
+{
+  "HISTORICAL_RAW_RECORDS": 560,
+  "HISTORICAL_UNIQUE_BUSINESSES": 552,
+  "IMAGE_RAW_RECORDS": 719,
+  "IMAGE_MATCHED": 10,
+  "IMAGE_POSSIBLE_MATCH": 19,
+  "IMAGE_MISSING": 145,
+  "IMAGE_NEEDS_REVIEW": 545,
+  "IMAGE_DUPLICATE": 0,
+  "UNIFIED_SOURCE_ROWS": 1279,
+  "UNIFIED_DISTINCT_BUSINESS_CANDIDATES": 697,
+  "VERIFICATION_QUEUE_145": 145,
+  "POSSIBLE_MATCH_QUEUE_19": 19,
+  "NEEDS_REVIEW_QUEUE_545": 545,
+  "UNACCOUNTED_SOURCE_ROWS": 0,
+  "ROWS_WITH_PROVENANCE": 1279,
+  "ROWS_WITHOUT_PROVENANCE": 0,
+  "histBucketCounts": {
+    "UNIQUE_BUSINESS": 280,
+    "PENDING": 224,
+    "NEEDS_REVIEW": 48,
+    "REJECTED": 2,
+    "DUPLICATE": 6
+  },
+  "imgBucketCounts": {
+    "IMAGE_DERIVED_MISSING_FROM_HISTORICAL": 145,
+    "MATCHED_TO_HISTORICAL": 10,
+    "NEEDS_REVIEW": 545,
+    "POSSIBLE_MATCH": 19
+  },
+  "qualityIssues": {
+    "duplicate_unified_record_ids": [],
+    "blank_business_name_historical": 0,
+    "blank_business_name_image": 0,
+    "unexpected_match_status_values": [],
+    "orphan_match_references": [],
+    "historical_reference_integrity": "ALL_RESOLVED",
+    "source_row_count_check": {
+      "expectedTotal": 1279,
+      "actualUnifiedTotal": 1279,
+      "match": true
+    },
+    "non_hebrew_name_sample_count": 1
+  }
+}

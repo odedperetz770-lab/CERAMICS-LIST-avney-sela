@@ -1,0 +1,50 @@
+{
+  "IMAGE_DERIVED_SOURCE_STATUS": "FOUND",
+  "IMAGE_SOURCE_FILES_FOUND": 15,
+  "sourceImageFilenames": [
+    "197443.jpg",
+    "197444.jpg",
+    "197445.jpg",
+    "197448.jpg",
+    "197449.jpg",
+    "197450.jpg",
+    "197451.jpg",
+    "197452.jpg",
+    "197453.jpg",
+    "197454.jpg",
+    "197455.jpg",
+    "197456.jpg",
+    "197457.jpg",
+    "197458.jpg",
+    "197459.jpg"
+  ],
+  "absentAfterDriveSearch": [
+    "197446.jpg",
+    "197447.jpg"
+  ],
+  "ondaFullySuperseded": true,
+  "ondaOverlapCheck": "177/177",
+  "IMAGE_DERIVED_RAW_RECORDS": 719,
+  "IMAGE_DERIVED_UNIQUE_RECORDS": 719,
+  "IMAGE_DERIVED_MATCHED_TO_HISTORICAL": 10,
+  "IMAGE_DERIVED_POSSIBLE_MATCH": 19,
+  "IMAGE_DERIVED_MISSING_FROM_HISTORICAL": 145,
+  "IMAGE_DERIVED_DUPLICATES": 0,
+  "IMAGE_DERIVED_NEEDS_REVIEW": 545,
+  "sumOfBuckets": 719,
+  "IMAGE_DERIVED_UNACCOUNTED": 0,
+  "bucketCounts": {
+    "IMAGE_DERIVED_MISSING_FROM_HISTORICAL": 145,
+    "MATCHED_TO_HISTORICAL": 10,
+    "NEEDS_REVIEW": 545,
+    "POSSIBLE_MATCH": 19
+  },
+  "priorMatchStats": {
+    "NEW_LEAD": 240,
+    "EXISTING_DISCOVERY_MATCH": 8,
+    "UNCLEAR_NO_LOCALITY": 385,
+    "POSSIBLE_MATCH_NEEDS_REVIEW": 66,
+    "EXISTING_LIVE_EXACT_MATCH": 20
+  },
+  "masterBaselineRecords": 560
+}

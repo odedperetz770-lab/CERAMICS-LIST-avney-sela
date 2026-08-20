@@ -1,0 +1,142 @@
+{
+  "generated_at": "2026-08-17T21:44:58.735Z",
+  "sources": [
+    {
+      "source_family": "Dealer lists",
+      "source": "Hansgrohe authorized stores",
+      "attempts": 27,
+      "raw_results": null,
+      "new_candidates": 23,
+      "duplicates": null,
+      "out_of_scope": null,
+      "blocked": 0,
+      "status": "PRODUCTIVE"
+    },
+    {
+      "source_family": "Dealer lists",
+      "source": "Pazkar locations",
+      "attempts": 1,
+      "raw_results": null,
+      "new_candidates": 16,
+      "duplicates": null,
+      "out_of_scope": null,
+      "blocked": 0,
+      "status": "PRODUCTIVE_BUT_CATEGORY_BROAD"
+    },
+    {
+      "source_family": "Dealer lists",
+      "source": "Picsol showrooms",
+      "attempts": 1,
+      "raw_results": 30,
+      "new_candidates": 12,
+      "duplicates": 18,
+      "out_of_scope": 0,
+      "blocked": 0,
+      "status": "PRODUCTIVE"
+    },
+    {
+      "source_family": "Dealer lists",
+      "source": "GROHE locator",
+      "attempts": 1,
+      "raw_results": 0,
+      "new_candidates": 0,
+      "duplicates": 0,
+      "out_of_scope": 0,
+      "blocked": 1,
+      "status": "SOURCE_UNAVAILABLE_DYNAMIC_LOCATOR"
+    },
+    {
+      "source_family": "Dealer lists",
+      "source": "Geberit locator",
+      "attempts": 1,
+      "raw_results": 0,
+      "new_candidates": 0,
+      "duplicates": 0,
+      "out_of_scope": 0,
+      "blocked": 1,
+      "status": "ISRAEL_LIST_NOT_EXPOSED"
+    },
+    {
+      "source_family": "Facebook",
+      "source": "Public web index",
+      "attempts": 4,
+      "raw_results": null,
+      "new_candidates": 0,
+      "duplicates": 0,
+      "out_of_scope": null,
+      "blocked": 1,
+      "status": "FOREIGN_FALSE_POSITIVES_AND_LOGIN_WALL"
+    },
+    {
+      "source_family": "Instagram",
+      "source": "Public web index",
+      "attempts": 2,
+      "raw_results": 0,
+      "new_candidates": 0,
+      "duplicates": 0,
+      "out_of_scope": 0,
+      "blocked": 1,
+      "status": "INSUFFICIENT_LOCALITY_QUALIFIED_INDEXING"
+    },
+    {
+      "source_family": "Municipal",
+      "source": "Dimona, Arad, Kuseife, Laqiya",
+      "attempts": 4,
+      "raw_results": null,
+      "new_candidates": 0,
+      "duplicates": 0,
+      "out_of_scope": 0,
+      "blocked": 2,
+      "status": "NO_USABLE_PUBLIC_TENANT_DIRECTORY"
+    },
+    {
+      "source_family": "GOOGLE_SEARCH",
+      "source": "Golden Pilot 100-locality Hebrew grouped discovery protocol",
+      "attempts": 100,
+      "raw_results": 283,
+      "new_candidates": 0,
+      "category_unconfirmed_candidates": 0,
+      "duplicates": 0,
+      "out_of_scope": 0,
+      "blocked": 0,
+      "status": "COMPLETED_LOW_EXACT_LOCALITY_YIELD"
+    },
+    {
+      "source_family": "MULTILINGUAL_SEARCH",
+      "source": "Arabic and English-transliteration supplementary protocol",
+      "attempts": 36,
+      "localities": 35,
+      "raw_results": 61,
+      "new_candidates": 0,
+      "category_unconfirmed_candidates": 0,
+      "duplicates": 0,
+      "out_of_scope": 0,
+      "blocked": 0,
+      "status": "COMPLETED_LOW_EXACT_LOCALITY_YIELD"
+    },
+    {
+      "source_family": "B144",
+      "source": "Indexed locality/category results",
+      "attempts": 25,
+      "raw_results": null,
+      "new_candidates": 0,
+      "category_unconfirmed_candidates": 0,
+      "duplicates": 0,
+      "out_of_scope": 0,
+      "blocked": 0,
+      "status": "SERVICE_AREA_POLLUTION_REQUIRES_DIRECT_PAGE_RECHECK"
+    },
+    {
+      "source_family": "EASY_DAPEI_ZAHAV",
+      "source": "Indexed locality/category results",
+      "attempts": 25,
+      "raw_results": null,
+      "new_candidates": 0,
+      "category_unconfirmed_candidates": 0,
+      "duplicates": 0,
+      "out_of_scope": 0,
+      "blocked": 0,
+      "status": "LOW_INDEXED_YIELD"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+# Category D — private source material
+/source-material/drive-customer-lists/197443.jpg
+/source-material/drive-customer-lists/197444.jpg
+/source-material/drive-customer-lists/197445.jpg
+/source-material/drive-customer-lists/197448.jpg
+/source-material/drive-customer-lists/197449.jpg
+/source-material/drive-customer-lists/197450.jpg
+/source-material/drive-customer-lists/197451.jpg
+/source-material/drive-customer-lists/197452.jpg
+/source-material/drive-customer-lists/197453.jpg
+/source-material/drive-customer-lists/197454.jpg
+/source-material/drive-customer-lists/197455.jpg
+/source-material/drive-customer-lists/197456.jpg
+/source-material/drive-customer-lists/197457.jpg
+/source-material/drive-customer-lists/197458.jpg
+/source-material/drive-customer-lists/197459.jpg
+/source-material/onda/197443.jpg
+/source-material/onda/197444.jpg
+/source-material/onda/197445.jpg
+/DRIVE_CUSTOMER_LIST_EXTRACTED.json
+/DRIVE_SOURCE_MANIFEST.json
+/ONDA_CUSTOMER_LIST_EXTRACTED.json
+/onda-followup-source.json
+
+# Category E — derived private data
+/AVNEI_SELA_IMAGE_DERIVED_RECONCILIATION.csv
+/AVNEI_SELA_145_VERIFICATION_QUEUE.csv
+/AVNEI_SELA_19_POSSIBLE_MATCH_REVIEW.csv
+/AVNEI_SELA_545_NEEDS_REVIEW_QUEUE.csv
+/AVNEI_SELA_UNIFIED_CANDIDATE_MASTER.csv
+/AVNEI_SELA_UNIFIED_CANDIDATE_MASTER.json
+/DRIVE_CUSTOMER_LIST_MATCHED.json
+/DRIVE_NEW_LEADS_FOR_VERIFICATION.json
+/ONDA_FOLLOWUP_MATCHED.json
+/ONDA_PUBLIC_RESEARCH.json
+/ONDA_VERIFIED_CANDIDATES.json
+
+# Category F — human review required
+/CERAMICS_QUANTITATIVE_QA.json
